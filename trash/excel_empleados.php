@@ -13,24 +13,23 @@ require_once '../clases/conexion.php';
 $obj= new conectar();
 $conexion=$obj->conexion();
 
-$archivo ='C:\xampp\htdocs\dataTablephp\excel\unidades.xlsx';
+$archivo ='C:\xampp\htdocs\cedisAdmin\excel\enfriadores.xlsx';
 
 $objPHPExcel = PHPEXCEL_IOFactory::load($archivo);
 
-	$objPHPExcel->setActiveSheetIndex(0);
+	$objPHPExcel->setActiveSheetIndex(9);
 
-	$numRows = $objPHPExcel->setActiveSheetIndex(0)->getHighestRow();
+	$numRows = $objPHPExcel->setActiveSheetIndex(9)->getHighestRow();
 
 
 	for($i = 2; $i <= $numRows; $i++){
 
 		$sap = $objPHPExcel->getActiveSheet()->getCell('A'.$i)->getCalculatedValue();
-		$tipo = $objPHPExcel->getActiveSheet()->getCell('B'.$i)->getCalculatedValue();
-		$descripcion = $objPHPExcel->getActiveSheet()->getCell('C'.$i)->getCalculatedValue();
-		$estado = $objPHPExcel->getActiveSheet()->getCell('D'.$i)->getCalculatedValue();
+		$nombre = $objPHPExcel->getActiveSheet()->getCell('B'.$i)->getCalculatedValue();
 
 
-		$sql = "INSERT INTO unidades (sap_unidad, tipo, descripcion,estado) VALUE('$sap','$tipo','$descripcion','$estado')";
+
+		$sql = "INSERT INTO clientes (sap_cliente, nombre) VALUE('$sap','$nombre')";
 
 
 		$result=mysqli_query($conexion,$sql);

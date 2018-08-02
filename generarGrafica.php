@@ -2,6 +2,9 @@
 <?php require 'clases/header.php'; ?>
 <?php require_once "clases/conexion.php";
 require 'scripts.php';
+
+$obj= new conectar();
+$conexion=$obj->conexion();
 ?>
 
 <br>
@@ -68,10 +71,7 @@ require 'scripts.php';
 
                <?php
                include 'scripts.php';
-               require_once "clases/conexion.php";
 
-               $obj= new conectar();
-               $conexion=$obj->conexion();
 
                $sql = "select  nombre, count(sap) total from refrigerador group by sap order by total desc limit 20";
 
@@ -106,7 +106,7 @@ require 'scripts.php';
                            <tr >
                               <td><?php echo $mostrar[0] ?></td>
                               <td><?php echo $mostrar[1] ?></td>
-                              
+
 
                            </tr>
                            <?php
@@ -117,10 +117,70 @@ require 'scripts.php';
                   </table>
 
                </div>
+               <br>
+               <br>
+               <br>
+               <hr>
+               <h3>Clientes que no tienen enfriador</h3>
+               <?php
+               $sql1 = "SELECT sap_cliente, nombre
+                FROM  clientes WHERE
+                clientes.sap_cliente NOT IN (SELECT sap FROM refrigerador)";
+                $result2=mysqli_query($conexion,$sql1);
+                ?>
+
+
+
+               <div class="container" >
+                  <table class="table" id="iddatatable2">
+                     <thead style="background-color: #dc3545;color:white; font-weight:bold;">
+                        <tr >
+                           <td>Numero Sap</td>
+                           <td>Nombre</td>
+
+
+
+                        </tr>
+                     </thead>
+                     <tfoot style="background-color: #ccc;color:white; font-weight:bold;">
+                        <tr>
+                           <td>Numero Sap</td>
+                           <td>Nombre</td>
+
+                        </tr>
+                     </tfoot>
+                     <tbody>
+                        <?php
+
+
+
+                        while ($mostrar=mysqli_fetch_row($result2)) {
+
+                           ?>
+                           <tr >
+                              <td><?php echo $mostrar[0] ?></td>
+                              <td><?php echo $mostrar[1] ?></td>
+
+
+                           </tr>
+                           <?php
+                        }
+
+                        ?>
+
+
+                     </tbody>
+                  </table>
+
+               </div>
+               <br>
+               <br>
+               <br>
 
                <script type="text/javascript">
                $(document).ready(function() {
                   $('#iddatatable').DataTable();
+                  $('#iddatatable2').DataTable();
 
                });
                </script>
