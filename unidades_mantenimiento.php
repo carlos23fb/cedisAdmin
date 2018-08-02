@@ -21,27 +21,11 @@ $resultpuesto=mysqli_query($conexion,$sqlpuesto);
       <div class="col-sm-33">
          <div class="card text-left">
             <div class="card-header">
-               Unidades
+               Unidades en mantenimiento
             </div>
             <div class="card-body">
 
-               <span class="btn btn-success" id="opennewmodal" data-toggle="modal" data-target="#agregarnuevosdatos">Agregar Nuevo
-                  <span class="fas fa-car" ></span>
-               </span>
-
-
-               <a href="unidades_mantenimiento.php">
-
-               <span  class="btn btn-warning"   > Ir al apartado de mantenimiento
-                  <span class="fas fa-car" ></span>
-
-               </span>
-               </a>
-
-
-
-
-
+               <h2>Lista de unidades automotrices inactivas</h2>
                <hr>
                <div id="tablaDatatable">
 
@@ -116,26 +100,25 @@ $resultpuesto=mysqli_query($conexion,$sqlpuesto);
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modificar datos de la unidad </h5>
+        <h5 class="modal-title" id="exampleModalLabel">Reportar o dar de alta la unidad </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
+
+         <form class="" action="generar_reporte.php" method="post">
+            <input type="number" hidden="" name="idunidad" id="idunidad">
+            <button type="submit"  class="btn btn-primary">Reportar mantenimiento de la unidad automotriz</button>
+
+         </form>
          <form   id="frmnuevoU"  method="post">
 
 
               <input type="number" hidden="" name="idunidad" id="idunidad">
-              <div class="form-group ">
-                  <label for="tipoU">Tipo</label>
-                  <input type="text" class="form-control" name="tipoU"  id="tipoU">
-              </div>
-              <div class="form-row">
-                 <div class="form-group col-md-5">
-                    <label  for="descripcionU">Descripcion</label>
-                    <input class="form-control" type="text" name="descripcionU" id="descripcionU">
+              <br>
+              <hr>
 
-                 </div>
                  <div class="form-group col-md-7">
                     <label for="estadoU">Estado</label>
                     <select  class="form-control" name="estadoU" id="estadoU">
@@ -148,7 +131,7 @@ $resultpuesto=mysqli_query($conexion,$sqlpuesto);
 
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-              <button type="button" id="btnActualizar" class="btn btn-warning">Actualizar Unidad</button>
+              <button type="button" id="btnActualizar" class="btn btn-success">Dar de Alta</button>
             </div>
          </form>
       </div>
@@ -173,7 +156,7 @@ $(document).ready(function() {
          success:function(r){
             if(r==1){
                $('#frmnuevo')[0].reset();
-               $('#tablaDatatable').load('tabla_unidades.php');
+               $('#tablaDatatable').load('tabla_unidades_mantenimiento.php');
                alertify.success("Unidad agregada con exito");
 
             }else{
@@ -189,11 +172,11 @@ $(document).ready(function() {
       $.ajax({
          type:"POST",
          data:datos,
-         url:"procesos/actualizar_unidad.php",
+         url:"procesos/darAlta_unidad.php",
          success:function(r){
             if(r==1){
-               $('#tablaDatatable').load('tabla_unidades.php');
-               alertify.success("Informacion de la unidad actualizada con exito");
+               $('#tablaDatatable').load('tabla_unidades_mantenimiento.php');
+               alertify.success("Unidad dada de alta con exito");
 
             }else{
                alertify.error("Fallo al actualizar la informacion de la unidad");
@@ -214,7 +197,7 @@ $(document).ready(function() {
 <script type="text/javascript">
 $(document).ready(function(){
 
-   $('#tablaDatatable').load('tabla_unidades.php');
+   $('#tablaDatatable').load('tabla_unidades_mantenimiento.php');
 });
 
 </script>
@@ -243,10 +226,10 @@ $(document).ready(function(){
          $.ajax({
             type:"POST",
             data:"idunidad=" + idunidad,
-            url:"procesos/eliminar_unidad.php",
+            url:"procesos/darAlta_unidad.php",
             success:function(r) {
                if (r==1) {
-                  $('#tablaDatatable').load('tabla_unidades.php');
+                  $('#tablaDatatable').load('tabla_unidades_mantenimiento.php');
                   alertify.success("¡Eliminado con exito!");
                }else {
                   alertify.error("Error al tratar de eliminar el registro");

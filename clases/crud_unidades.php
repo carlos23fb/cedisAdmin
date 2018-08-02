@@ -66,6 +66,21 @@ header("Content-Type: text/html;charset=utf-8");
 
 		}
 
+		public function alta($datos){
+
+			$obj= new conectar();
+			$conexion=$obj->conexion();
+
+			$sql="UPDATE  unidades set estado='$datos[1]'
+
+											where sap_unidad='$datos[0]'
+												 ";
+
+		   return mysqli_query($conexion,$sql);
+
+
+		}
+
 
 	}
 
