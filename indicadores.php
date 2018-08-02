@@ -19,7 +19,7 @@ require 'scripts.php';
 
                <br>
                <div class="modal-body">
-                  <form   id="frmnuevo" method="post">
+                  <form action="generarGrafica.php"  id="frmnuevo" method="post">
                      <h4>Gente</h4>
 
                      <div class="form-row">

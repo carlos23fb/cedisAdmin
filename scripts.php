@@ -14,3 +14,4 @@
 <script src="librerias/dataTable/dataTables.bootstrap4.min.js"></script>
 <script src="librerias/alertify/alertify.js"></script>
 <script src="librerias/fontawesome/js/all.js"></script>
+<script type="text/javascript" src="librerias\plotly.min.js"></script>
