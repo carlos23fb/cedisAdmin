@@ -57,6 +57,12 @@ require 'scripts.php';
                      </div>
                      <button type="button"  id="btnAgregar" class="btn btn-primary">Generar reporte</button>
 
+                     <a href="reportes.php">
+                        <button type="button" class="btn btn-success" name="button">Ir a concentrado de reportes</button>
+
+
+                     </a>
+
 
                   </form>
 
