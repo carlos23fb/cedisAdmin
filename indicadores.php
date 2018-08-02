@@ -19,7 +19,7 @@ require 'scripts.php';
 
                <br>
                <div class="modal-body">
-                  <form   id="frmnuevo" method="post">
+                  <form  action="generarGrafica.php"  id="frmnuevo" method="post">
                      <h4>Gente</h4>
 
                      <div class="form-row">
@@ -42,9 +42,9 @@ require 'scripts.php';
 
                         </div>
                         <div class="form-group col-md-3">
-                           <label for="imgpersonal">Imagen Personal</label>
+                           <label for="imagen">Imagen Personal</label>
                            <br>
-                           <select  class="form-control" name="imgpersonal" id="imgpersonal">
+                           <select  class="form-control" name="imagen" id="imagen">
                               <option value="10">10%</option>
                               <option value="20">20%</option>
                               <option value="30">30%</option>
@@ -77,14 +77,14 @@ require 'scripts.php';
                         </div>
                      </div>
                      <hr>
-                     <h4>Producto</h4>
+                     <h4>Productividad</h4>
 
                      <div class="form-row">
 
                         <div class="form-group col-md-3">
-                           <label for="nivel">Nivel de Servicio</label>
+                           <label for="seleccion">Selección y acomodo de embase</label>
                            <br>
-                           <select  class="form-control" name="nivel" id="nivel">
+                           <select  class="form-control" name="seleccion" id="seleccion">
                               <option value="10">10%</option>
                               <option value="20">20%</option>
                               <option value="30">30%</option>
@@ -177,9 +177,9 @@ require 'scripts.php';
                            </select>
                         </div>
                         <div class="form-group col-md-3">
-                           <label for="seleccion">Seleccion y acomodo de embase</label>
+                           <label for="nivel">Nivel de Servicio</label>
                            <br>
-                           <select  class="form-control" name="seleccion" id="seleccion">
+                           <select  class="form-control" name="nivel" id="nivel">
                               <option value="10">10%</option>
                               <option value="20">20%</option>
                               <option value="30">30%</option>
@@ -198,7 +198,7 @@ require 'scripts.php';
 
                      <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <button type="button" id="btnAgregarnuevo" class="btn btn-success">Generar Grafica</button>
+                        <button type="submit" id="btnAgregarnuevo" class="btn btn-success">Generar Grafica</button>
                      </div>
                   </form>
 
