@@ -15,6 +15,21 @@ header("Content-Type: text/html;charset=utf-8");
 			return mysqli_query($conexion,$sql);
 		}
 
+		public function agregarReporte($datos){
+			$obj= new conectar();
+			$conexion=$obj->conexion();
+
+			$sql="INSERT into reporte_unidad (sap_unidad,fecha,kilometraje,servicio,nota)
+								 values ('$datos[0]',
+											'$datos[1]',
+											'$datos[2]',
+											'$datos[3]',
+											'$datos[4]')";
+
+
+			return mysqli_query($conexion,$sql);
+		}
+
 		public function obtenDatos($idunidad) {
 			$obj= new conectar();
 			$conexion=$obj->conexion();

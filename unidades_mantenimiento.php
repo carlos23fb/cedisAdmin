@@ -107,9 +107,10 @@ $resultpuesto=mysqli_query($conexion,$sqlpuesto);
       </div>
       <div class="modal-body">
 
-         <form class="" action="generar_reporte.php" method="post">
+         <form  action="generar_reporte.php" method="post">
             <input type="number" hidden="" name="idunidad" id="idunidad">
             <button type="submit"  class="btn btn-primary">Reportar mantenimiento de la unidad automotriz</button>
+            
 
          </form>
          <form   id="frmnuevoU"  method="post">

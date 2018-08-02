@@ -37,11 +37,6 @@ $resultpuesto=mysqli_query($conexion,$sqlpuesto);
 
                </span>
                </a>
-
-
-
-
-
                <hr>
                <div id="tablaDatatable">
 
