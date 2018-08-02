@@ -25,10 +25,10 @@
                <a href="unidades.php">Concentrado de Unidades</a>
             </li>
             <li class="list-group-item">
-               <a href="unidades_mantenimiento.php">Unidades en mantenimiento</a>
+               <a href="unidades_mantenimiento.php">Mantenimiento automotriz</a>
             </li>
             <li class="list-group-item">
-               <a href="indicadores.php">Indicadores</a>
+               <a href="indicadores.php">Indicadores de Eficiencia</a>
             </li>
 
          </ul>

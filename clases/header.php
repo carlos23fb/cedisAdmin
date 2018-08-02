@@ -35,6 +35,10 @@
 					<a class="nav-link" href="indicadores.php">Indicadores</a>
 				</li>
 
+				<li class="nav-item">
+					<a class="nav-link" href="unidades_mantenimiento.php">Mantenimiento</a>
+				</li>
+
 
 			</ul>
 
